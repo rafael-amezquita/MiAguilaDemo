@@ -1,0 +1,623 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		209E250F086F187E97E333D5 /* Pods_MiAguilaDemoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 120A2679CE181B18625FA815 /* Pods_MiAguilaDemoTests.framework */; };
+		E177351822BB9428001998BF /* TripsAPIServicesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E177351722BB9428001998BF /* TripsAPIServicesManager.swift */; };
+		E177351B22BB9637001998BF /* trips.json in Resources */ = {isa = PBXBuildFile; fileRef = E177351A22BB9637001998BF /* trips.json */; };
+		E177351E22BB97CE001998BF /* TripsAPIServicesTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E177351D22BB97CE001998BF /* TripsAPIServicesTest.swift */; };
+		E177352322BBA110001998BF /* TripsAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E177352222BBA110001998BF /* TripsAdapter.swift */; };
+		E1DCB15C22BA69E1004AA18C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1DCB15B22BA69E1004AA18C /* AppDelegate.swift */; };
+		E1DCB15E22BA69E1004AA18C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1DCB15D22BA69E1004AA18C /* ViewController.swift */; };
+		E1DCB16122BA69E1004AA18C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E1DCB15F22BA69E1004AA18C /* Main.storyboard */; };
+		E1DCB16322BA69E3004AA18C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E1DCB16222BA69E3004AA18C /* Assets.xcassets */; };
+		E1DCB16622BA69E3004AA18C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E1DCB16422BA69E3004AA18C /* LaunchScreen.storyboard */; };
+		E1DCB17122BA69E4004AA18C /* MiAguilaDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1DCB17022BA69E4004AA18C /* MiAguilaDemoTests.swift */; };
+		E1DCB17C22BA6B5B004AA18C /* TripDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1DCB17B22BA6B5B004AA18C /* TripDataModel.swift */; };
+		E5F70B0D9D831147CB7C9B7C /* Pods_MiAguilaDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2795D62A586DED43A8C6BC1 /* Pods_MiAguilaDemo.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		E1DCB16D22BA69E4004AA18C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E1DCB15022BA69E1004AA18C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E1DCB15722BA69E1004AA18C;
+			remoteInfo = MiAguilaDemo;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		120A2679CE181B18625FA815 /* Pods_MiAguilaDemoTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MiAguilaDemoTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4301538D09E295FA3306813A /* Pods-MiAguilaDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MiAguilaDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-MiAguilaDemo/Pods-MiAguilaDemo.release.xcconfig"; sourceTree = "<group>"; };
+		575D51C08BEAF67C6A2C5223 /* Pods-MiAguilaDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MiAguilaDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MiAguilaDemo/Pods-MiAguilaDemo.debug.xcconfig"; sourceTree = "<group>"; };
+		8A1B3C45EFFE62EB08FF9C83 /* Pods-MiAguilaDemoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MiAguilaDemoTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MiAguilaDemoTests/Pods-MiAguilaDemoTests.debug.xcconfig"; sourceTree = "<group>"; };
+		D02D73A432BF71D5D2EC9DBB /* Pods-MiAguilaDemoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MiAguilaDemoTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MiAguilaDemoTests/Pods-MiAguilaDemoTests.release.xcconfig"; sourceTree = "<group>"; };
+		D2795D62A586DED43A8C6BC1 /* Pods_MiAguilaDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MiAguilaDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E177351722BB9428001998BF /* TripsAPIServicesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripsAPIServicesManager.swift; sourceTree = "<group>"; };
+		E177351A22BB9637001998BF /* trips.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = trips.json; path = Resources/trips.json; sourceTree = SOURCE_ROOT; };
+		E177351D22BB97CE001998BF /* TripsAPIServicesTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripsAPIServicesTest.swift; sourceTree = "<group>"; };
+		E177352222BBA110001998BF /* TripsAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripsAdapter.swift; sourceTree = "<group>"; };
+		E1DCB15822BA69E1004AA18C /* MiAguilaDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MiAguilaDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E1DCB15B22BA69E1004AA18C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		E1DCB15D22BA69E1004AA18C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		E1DCB16022BA69E1004AA18C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		E1DCB16222BA69E3004AA18C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		E1DCB16522BA69E3004AA18C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		E1DCB16722BA69E3004AA18C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E1DCB16C22BA69E4004AA18C /* MiAguilaDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MiAguilaDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E1DCB17022BA69E4004AA18C /* MiAguilaDemoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiAguilaDemoTests.swift; sourceTree = "<group>"; };
+		E1DCB17222BA69E4004AA18C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E1DCB17B22BA6B5B004AA18C /* TripDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripDataModel.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		E1DCB15522BA69E1004AA18C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E5F70B0D9D831147CB7C9B7C /* Pods_MiAguilaDemo.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E1DCB16922BA69E4004AA18C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				209E250F086F187E97E333D5 /* Pods_MiAguilaDemoTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		3AF44AE0F962C0DF60C20F5F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D2795D62A586DED43A8C6BC1 /* Pods_MiAguilaDemo.framework */,
+				120A2679CE181B18625FA815 /* Pods_MiAguilaDemoTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		9EE8DFB6B3A398F4814B11A7 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				575D51C08BEAF67C6A2C5223 /* Pods-MiAguilaDemo.debug.xcconfig */,
+				4301538D09E295FA3306813A /* Pods-MiAguilaDemo.release.xcconfig */,
+				8A1B3C45EFFE62EB08FF9C83 /* Pods-MiAguilaDemoTests.debug.xcconfig */,
+				D02D73A432BF71D5D2EC9DBB /* Pods-MiAguilaDemoTests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		E177351922BB9625001998BF /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				E177351A22BB9637001998BF /* trips.json */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		E177351C22BB9736001998BF /* APIServices */ = {
+			isa = PBXGroup;
+			children = (
+				E177351F22BB9966001998BF /* TripsAPIServices */,
+			);
+			path = APIServices;
+			sourceTree = "<group>";
+		};
+		E177351F22BB9966001998BF /* TripsAPIServices */ = {
+			isa = PBXGroup;
+			children = (
+				E1DCB17F22BA7B61004AA18C /* model */,
+				E177351722BB9428001998BF /* TripsAPIServicesManager.swift */,
+				E177352222BBA110001998BF /* TripsAdapter.swift */,
+			);
+			path = TripsAPIServices;
+			sourceTree = "<group>";
+		};
+		E1DCB14F22BA69E1004AA18C = {
+			isa = PBXGroup;
+			children = (
+				E177351922BB9625001998BF /* Resources */,
+				E1DCB15A22BA69E1004AA18C /* MiAguilaDemo */,
+				E1DCB16F22BA69E4004AA18C /* MiAguilaDemoTests */,
+				E1DCB15922BA69E1004AA18C /* Products */,
+				9EE8DFB6B3A398F4814B11A7 /* Pods */,
+				3AF44AE0F962C0DF60C20F5F /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		E1DCB15922BA69E1004AA18C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E1DCB15822BA69E1004AA18C /* MiAguilaDemo.app */,
+				E1DCB16C22BA69E4004AA18C /* MiAguilaDemoTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		E1DCB15A22BA69E1004AA18C /* MiAguilaDemo */ = {
+			isa = PBXGroup;
+			children = (
+				E1DCB17E22BA6B84004AA18C /* MiAguilaUI */,
+				E1DCB15B22BA69E1004AA18C /* AppDelegate.swift */,
+				E1DCB16222BA69E3004AA18C /* Assets.xcassets */,
+				E1DCB16722BA69E3004AA18C /* Info.plist */,
+				E1DCB17D22BA6B61004AA18C /* MiAguilaCore */,
+			);
+			path = MiAguilaDemo;
+			sourceTree = "<group>";
+		};
+		E1DCB16F22BA69E4004AA18C /* MiAguilaDemoTests */ = {
+			isa = PBXGroup;
+			children = (
+				E1DCB17022BA69E4004AA18C /* MiAguilaDemoTests.swift */,
+				E1DCB17222BA69E4004AA18C /* Info.plist */,
+				E177351D22BB97CE001998BF /* TripsAPIServicesTest.swift */,
+			);
+			path = MiAguilaDemoTests;
+			sourceTree = "<group>";
+		};
+		E1DCB17D22BA6B61004AA18C /* MiAguilaCore */ = {
+			isa = PBXGroup;
+			children = (
+				E177351C22BB9736001998BF /* APIServices */,
+			);
+			path = MiAguilaCore;
+			sourceTree = "<group>";
+		};
+		E1DCB17E22BA6B84004AA18C /* MiAguilaUI */ = {
+			isa = PBXGroup;
+			children = (
+				E1DCB15D22BA69E1004AA18C /* ViewController.swift */,
+				E1DCB15F22BA69E1004AA18C /* Main.storyboard */,
+				E1DCB16422BA69E3004AA18C /* LaunchScreen.storyboard */,
+			);
+			path = MiAguilaUI;
+			sourceTree = "<group>";
+		};
+		E1DCB17F22BA7B61004AA18C /* model */ = {
+			isa = PBXGroup;
+			children = (
+				E1DCB17B22BA6B5B004AA18C /* TripDataModel.swift */,
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		E1DCB15722BA69E1004AA18C /* MiAguilaDemo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E1DCB17522BA69E4004AA18C /* Build configuration list for PBXNativeTarget "MiAguilaDemo" */;
+			buildPhases = (
+				BAC1C05CAB067D7DD9EC35A5 /* [CP] Check Pods Manifest.lock */,
+				E1DCB15422BA69E1004AA18C /* Sources */,
+				E1DCB15522BA69E1004AA18C /* Frameworks */,
+				E1DCB15622BA69E1004AA18C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MiAguilaDemo;
+			productName = MiAguilaDemo;
+			productReference = E1DCB15822BA69E1004AA18C /* MiAguilaDemo.app */;
+			productType = "com.apple.product-type.application";
+		};
+		E1DCB16B22BA69E4004AA18C /* MiAguilaDemoTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E1DCB17822BA69E4004AA18C /* Build configuration list for PBXNativeTarget "MiAguilaDemoTests" */;
+			buildPhases = (
+				A9186F636A1F12730FBE660A /* [CP] Check Pods Manifest.lock */,
+				E1DCB16822BA69E4004AA18C /* Sources */,
+				E1DCB16922BA69E4004AA18C /* Frameworks */,
+				E1DCB16A22BA69E4004AA18C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E1DCB16E22BA69E4004AA18C /* PBXTargetDependency */,
+			);
+			name = MiAguilaDemoTests;
+			productName = MiAguilaDemoTests;
+			productReference = E1DCB16C22BA69E4004AA18C /* MiAguilaDemoTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		E1DCB15022BA69E1004AA18C /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1020;
+				LastUpgradeCheck = 1020;
+				ORGANIZATIONNAME = "Rafael Andres Amezquita Mejia";
+				TargetAttributes = {
+					E1DCB15722BA69E1004AA18C = {
+						CreatedOnToolsVersion = 10.2;
+					};
+					E1DCB16B22BA69E4004AA18C = {
+						CreatedOnToolsVersion = 10.2;
+						TestTargetID = E1DCB15722BA69E1004AA18C;
+					};
+				};
+			};
+			buildConfigurationList = E1DCB15322BA69E1004AA18C /* Build configuration list for PBXProject "MiAguilaDemo" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = E1DCB14F22BA69E1004AA18C;
+			productRefGroup = E1DCB15922BA69E1004AA18C /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				E1DCB15722BA69E1004AA18C /* MiAguilaDemo */,
+				E1DCB16B22BA69E4004AA18C /* MiAguilaDemoTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		E1DCB15622BA69E1004AA18C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E177351B22BB9637001998BF /* trips.json in Resources */,
+				E1DCB16622BA69E3004AA18C /* LaunchScreen.storyboard in Resources */,
+				E1DCB16322BA69E3004AA18C /* Assets.xcassets in Resources */,
+				E1DCB16122BA69E1004AA18C /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E1DCB16A22BA69E4004AA18C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		A9186F636A1F12730FBE660A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MiAguilaDemoTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BAC1C05CAB067D7DD9EC35A5 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MiAguilaDemo-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		E1DCB15422BA69E1004AA18C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E1DCB15E22BA69E1004AA18C /* ViewController.swift in Sources */,
+				E1DCB15C22BA69E1004AA18C /* AppDelegate.swift in Sources */,
+				E177352322BBA110001998BF /* TripsAdapter.swift in Sources */,
+				E177351822BB9428001998BF /* TripsAPIServicesManager.swift in Sources */,
+				E1DCB17C22BA6B5B004AA18C /* TripDataModel.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E1DCB16822BA69E4004AA18C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E177351E22BB97CE001998BF /* TripsAPIServicesTest.swift in Sources */,
+				E1DCB17122BA69E4004AA18C /* MiAguilaDemoTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		E1DCB16E22BA69E4004AA18C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E1DCB15722BA69E1004AA18C /* MiAguilaDemo */;
+			targetProxy = E1DCB16D22BA69E4004AA18C /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		E1DCB15F22BA69E1004AA18C /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E1DCB16022BA69E1004AA18C /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		E1DCB16422BA69E3004AA18C /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E1DCB16522BA69E3004AA18C /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		E1DCB17322BA69E4004AA18C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		E1DCB17422BA69E4004AA18C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		E1DCB17622BA69E4004AA18C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 575D51C08BEAF67C6A2C5223 /* Pods-MiAguilaDemo.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = ULTGL94E92;
+				INFOPLIST_FILE = MiAguilaDemo/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.mi.aguila.MiAguilaDemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		E1DCB17722BA69E4004AA18C /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4301538D09E295FA3306813A /* Pods-MiAguilaDemo.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = ULTGL94E92;
+				INFOPLIST_FILE = MiAguilaDemo/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.mi.aguila.MiAguilaDemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		E1DCB17922BA69E4004AA18C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8A1B3C45EFFE62EB08FF9C83 /* Pods-MiAguilaDemoTests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = ULTGL94E92;
+				INFOPLIST_FILE = MiAguilaDemoTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.mi.aguila.MiAguilaDemoTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MiAguilaDemo.app/MiAguilaDemo";
+			};
+			name = Debug;
+		};
+		E1DCB17A22BA69E4004AA18C /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D02D73A432BF71D5D2EC9DBB /* Pods-MiAguilaDemoTests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = ULTGL94E92;
+				INFOPLIST_FILE = MiAguilaDemoTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.mi.aguila.MiAguilaDemoTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MiAguilaDemo.app/MiAguilaDemo";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		E1DCB15322BA69E1004AA18C /* Build configuration list for PBXProject "MiAguilaDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E1DCB17322BA69E4004AA18C /* Debug */,
+				E1DCB17422BA69E4004AA18C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E1DCB17522BA69E4004AA18C /* Build configuration list for PBXNativeTarget "MiAguilaDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E1DCB17622BA69E4004AA18C /* Debug */,
+				E1DCB17722BA69E4004AA18C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E1DCB17822BA69E4004AA18C /* Build configuration list for PBXNativeTarget "MiAguilaDemoTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E1DCB17922BA69E4004AA18C /* Debug */,
+				E1DCB17A22BA69E4004AA18C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = E1DCB15022BA69E1004AA18C /* Project object */;
+}
