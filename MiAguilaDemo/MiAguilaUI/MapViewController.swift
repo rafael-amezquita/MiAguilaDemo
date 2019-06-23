@@ -7,8 +7,8 @@
 //
 
 import UIKit
-//import MapKit
 import Mapbox
+import MapboxDirections
 
 class MapViewController: UIViewController {
 
@@ -42,56 +42,55 @@ class MapViewController: UIViewController {
     mapView.addAnnotation(start)
     mapView.addAnnotation(end)
     
-    DispatchQueue.global().async {
-      do {
-        
-        guard let data = geoJSON.data(using: .utf8),
-          let shapeCollectionFeature = try MGLShape(data: data, encoding: String.Encoding.utf8.rawValue) as? MGLShapeCollectionFeature else {
-            fatalError("Could not cast to specified MGLShapeCollectionFeature")
-        }
-        
-        if let polyline = shapeCollectionFeature.shapes.first as? MGLPolylineFeature {
-          // Optionally set the title of the polyline, which can be used for:
-          //  - Callout view
-          //  - Object identification
-          polyline.title = polyline.attributes["name"] as? String
-          
-          DispatchQueue.main.async {
-            self.mapView.addAnnotation(polyline)
-          }
-        }
-        
-      } catch {
-        print(error)
+    let coordinates = [
+      start.coordinate,
+      end.coordinate
+    ]
+    
+    let options = MatchOptions(coordinates: coordinates)
+    options.includesSteps = true
+    
+    Directions.shared.calculate(options) { (matches, error) in
+      guard error == nil else {
+        print("Error matching coordinates: \(error!)")
+        return
       }
+      
+      if let match = matches?.first, let leg = match.legs.first {
+        print("Match via \(leg):")
+        
+        let distanceFormatter = LengthFormatter()
+        let formattedDistance = distanceFormatter.string(fromMeters: match.distance)
+        
+        let travelTimeFormatter = DateComponentsFormatter()
+        travelTimeFormatter.unitsStyle = .short
+        let formattedTravelTime = travelTimeFormatter.string(from: match.expectedTravelTime)
+        
+        print("Distance: \(formattedDistance); ETA: \(formattedTravelTime!)")
+        
+        for step in leg.steps {
+          print("\(step.instructions)")
+          let formattedDistance = distanceFormatter.string(fromMeters: step.distance)
+          print("— \(formattedDistance) —")
+        }
+        
+        if match.coordinates!.count > 0 {
+          // Convert the route’s coordinates into a polyline.
+          var routeCoordinates = match.coordinates!
+          let routeLine = MGLPolyline(coordinates: &routeCoordinates, count: UInt(match.coordinates!.count))
+          
+          // Add the polyline to the map and fit the viewport to the polyline.
+          self.mapView.addAnnotation(routeLine)
+          self.mapView.setVisibleCoordinates(&routeCoordinates, count: UInt(match.coordinates!.count), edgePadding: .zero, animated: true)
+        }
+        
+      }
+      
+      
+
     }
     
-    
   }
-//
-//  private func calculatePath(from a:CLLocationCoordinate2D, to b: CLLocationCoordinate2D) {
-//    let pathRequest = MKDirections.Request()
-//    let originPalcemark = MKPlacemark(coordinate: a)
-//    let destinationPlacemark = MKPlacemark(coordinate: b)
-//    pathRequest.source = MKMapItem(placemark: originPalcemark)
-//    pathRequest.destination = MKMapItem(placemark: destinationPlacemark)
-//    pathRequest.requestsAlternateRoutes = true
-//    pathRequest.transportType = .automobile
-//
-//    let directions = MKDirections(request: pathRequest)
-//    directions.calculate { [weak self] (directionResponse, error) in
-//      guard let strongSelf = self,
-//        let response = directionResponse else {
-//          // error message
-//          return
-//      }
-//
-//      for route in response.routes {
-//        strongSelf.mapView.addOverlay(route.polyline)
-//        strongSelf.mapView.setVisibleMapRect(route.polyline.boundingMapRect, animated: true)
-//      }
-//    }
-//  }
 
 }
 
@@ -120,31 +119,3 @@ extension MapViewController: MGLMapViewDelegate {
     return true // Allow callout view to appear when an annotation is tapped.
   }
 }
-
-
-let geoJSON = """
-{
-"type": "FeatureCollection",
-"features": [
-{
-"type": "Feature",
-"properties": {
-"name": "My Path"
-},
-"geometry": {
-"type": "LineString",
-"coordinates": [
-[
--74.0565192,
-4.6761959
-],
-[
--74.0465655,
-4.6830892
-]
-]
-}
-}
-]
-}
-"""
