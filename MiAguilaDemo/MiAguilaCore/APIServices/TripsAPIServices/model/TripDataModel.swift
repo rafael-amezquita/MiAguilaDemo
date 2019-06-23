@@ -21,8 +21,8 @@ enum LocationDataType: String, Codable {
 struct LocationData: Codable {
   var type: LocationDataType
   var coordinates: (latitude: Float, longitude: Float) {
-    return (latitude: coordinatesArray.first ?? 0,
-            longitude: coordinatesArray.last ?? 0)
+    return (latitude: coordinatesArray.last ?? 0,
+            longitude: coordinatesArray.first ?? 0)
   }
   
   private var coordinatesArray: [Float]
@@ -192,6 +192,7 @@ struct Trip: Codable {
   var start: LocationPoint
   var end: LocationPoint
   var country: Region
+  var city: Region
   var passenger: User
   var driver: User
   var car: Vehicle
@@ -206,6 +207,7 @@ struct Trip: Codable {
     case start
     case end
     case country
+    case city
     case passenger
     case driver
     case car
@@ -222,6 +224,7 @@ struct Trip: Codable {
     start = try values.decode(LocationPoint.self, forKey: .start)
     end = try values.decode(LocationPoint.self, forKey: .end)
     country = try values.decode(Region.self, forKey: .country)
+    city = try values.decode(Region.self, forKey: .city)
     passenger = try values.decode(User.self, forKey: .passenger)
     driver = try values.decode(User.self, forKey: .driver)
     car = try values.decode(Vehicle.self, forKey: .car)
@@ -240,6 +243,7 @@ struct Trip: Codable {
     try values.encode(start, forKey: .start)
     try values.encode(end, forKey: .end)
     try values.encode(country, forKey: .country)
+    try values.encode(city, forKey: .city)
     try values.encode(passenger, forKey: .passenger)
     try values.encode(driver, forKey: .driver)
     try values.encode(car, forKey: .car)

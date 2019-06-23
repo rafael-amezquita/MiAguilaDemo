@@ -19,7 +19,7 @@ class TripsAPIServicesTest: XCTestCase {
     // Put teardown code here. This method is called after the invocation of each test method in the class.
   }
   
-  func testTripsAPIServices_dataShouldBeNotNil() {
+  func testTripsAPIServices_dataShouldNotBeNil() {
     // This is an example of a functional test case.
     // Use XCTAssert and related functions to verify your tests produce the correct results.
     let expectation = self.expectation(description: "trips call")
@@ -31,7 +31,7 @@ class TripsAPIServicesTest: XCTestCase {
     waitForExpectations(timeout: 5, handler: nil)
   }
   
-  func testTripsAdapter_tripsObjectShouldBeNotNil() {
+  func testTripsAdapter_tripsObjectShouldNotBeNil() {
     // This is an example of a functional test case.
     // Use XCTAssert and related functions to verify your tests produce the correct results.
     let adapter = TripsAdapter()

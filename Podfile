@@ -6,6 +6,7 @@ target 'MiAguilaDemo' do
   use_frameworks!
 
   # Pods for MiAguilaDemo
+  pod 'Mapbox-iOS-SDK'
 
   target 'MiAguilaDemoTests' do
     inherit! :search_paths

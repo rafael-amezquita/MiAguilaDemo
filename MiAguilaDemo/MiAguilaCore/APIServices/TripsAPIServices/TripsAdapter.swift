@@ -8,7 +8,11 @@
 
 import Foundation
 
-class TripsAdapter {
+protocol TripsAdapterProtocol {
+  func getTrips(completion:@escaping (_ result: [Trip]?)->Void)
+}
+
+class TripsAdapter: TripsAdapterProtocol {
   
   func getTrips(completion:@escaping (_ result: [Trip]?)->Void ) {
     TripsAPIServicesManager.getTrips { (dataResponse) in
