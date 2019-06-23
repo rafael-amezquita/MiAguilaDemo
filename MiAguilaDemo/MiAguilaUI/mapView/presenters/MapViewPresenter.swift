@@ -9,16 +9,18 @@
 import Foundation
 import Mapbox
 
+struct Constants {
+  static let defaultZoomLevel: Double = 11.5
+}
+
 class MapViewPresenter {
   
-  private let locationManager: CLLocationManager
+  private var locationManager: CLLocationManager?
   private let mapView: MGLMapView
   
-  init(withDelegate controllerDelegate: CLLocationManagerDelegate, mapView: MGLMapView) {
-    locationManager = CLLocationManager()
-    locationManager.delegate = controllerDelegate
-    locationManager.desiredAccuracy = kCLLocationAccuracyBest
+  init(with locationManager: CLLocationManager?, mapView: MGLMapView) {
     self.mapView = mapView
+    self.locationManager = locationManager
   }
   
   func checkLocationServicesAvailability() {
@@ -33,12 +35,13 @@ class MapViewPresenter {
     checkLocationServicesAuthorization()
   }
   
-  func moveTo(location: CLLocationCoordinate2D) {
-    centerViewTo(location: location)
+  func moveTo(location: CLLocationCoordinate2D, zoomLevel: Double = Constants.defaultZoomLevel) {
+    centerViewTo(location: location, zoomLevel: zoomLevel)
   }
   
   func setUserpin() {
-    guard let initialLocation = locationManager.location?.coordinate else {
+    guard let manager = locationManager,
+      let initialLocation = manager.location?.coordinate else {
       return
     }
     
@@ -55,15 +58,16 @@ class MapViewPresenter {
     case .authorizedAlways:
       break
     case .authorizedWhenInUse:
-      if let initialLocation = locationManager.location?.coordinate {
-        centerViewTo(location: initialLocation)
-        locationManager.startUpdatingLocation()
+      if let manager = locationManager,
+        let initialLocation = manager.location?.coordinate {
+        centerViewTo(location: initialLocation, zoomLevel: Constants.defaultZoomLevel)
+        manager.startUpdatingLocation()
       }
     case .denied:
       // explanatory alert
       break
     case .notDetermined:
-      locationManager.requestWhenInUseAuthorization()
+      locationManager?.requestWhenInUseAuthorization()
     case .restricted:
       // explanatory alert
       break
@@ -72,8 +76,8 @@ class MapViewPresenter {
     }
   }
   
-  private func centerViewTo(location: CLLocationCoordinate2D) {
-    mapView.setCenter(location, zoomLevel: 13, animated: true)
+  private func centerViewTo(location: CLLocationCoordinate2D, zoomLevel: Double) {
+    mapView.setCenter(location, zoomLevel: zoomLevel, animated: true)
   }
   
 

@@ -7,6 +7,7 @@ target 'MiAguilaDemo' do
 
   # Pods for MiAguilaDemo
   pod 'Mapbox-iOS-SDK'
+  pod 'MapboxDirections.swift'
 
   target 'MiAguilaDemoTests' do
     inherit! :search_paths
