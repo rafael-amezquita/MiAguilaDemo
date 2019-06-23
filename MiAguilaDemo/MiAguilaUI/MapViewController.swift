@@ -12,7 +12,6 @@ import MapboxDirections
 
 class MapViewController: UIViewController {
 
-//  @IBOutlet weak var mapView: MKMapView!
   @IBOutlet weak var mapView: MGLMapView!
   
   private var mapPresenter: MapViewPresenter?
@@ -20,78 +19,75 @@ class MapViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    
+    setUpPresenters()
+    presentOnGoingTrips()
+  }
+  
+  private func setUpPresenters() {
     mapPresenter = MapViewPresenter(withDelegate: self, mapView: mapView)
     tripsPresenter = TripsPresenter()
     mapPresenter?.checkLocationServicesAvailability()
     mapPresenter?.setUserpin()
-    
-    testPath()
   }
   
-  func testPath() {
-    let start = MGLPointAnnotation()
-    start.coordinate = CLLocationCoordinate2D(latitude: 4.6761959,
-                                              longitude: -74.0565192)
-    start.title = "start"
+  private func presentOnGoingTrips() {
+    guard let presenter = tripsPresenter else {
+      return
+    }
     
-    let end = MGLPointAnnotation()
-    end.coordinate = CLLocationCoordinate2D(latitude: 4.6830892 ,
-                                              longitude: -74.0465655)
-    end.title = "end"
-    
-    mapView.addAnnotation(start)
-    mapView.addAnnotation(end)
-    
-    let coordinates = [
-      start.coordinate,
-      end.coordinate
-    ]
-    
-    let options = MatchOptions(coordinates: coordinates)
-    options.includesSteps = true
+    for point in presenter.coordinates {
+      let options = MatchOptions(coordinates: [point.start.coordinate, point.end.coordinate])
+      preparePath(with: options, point: point)
+    }
+  }
+  
+  private func preparePath(with options: MatchOptions, point: PrintablePath) {
+    guard let presenter = tripsPresenter else {
+      return
+    }
     
     Directions.shared.calculate(options) { (matches, error) in
       guard error == nil else {
+        // TODO: Error banner / alert
         print("Error matching coordinates: \(error!)")
         return
       }
       
-      if let match = matches?.first, let leg = match.legs.first {
-        print("Match via \(leg):")
-        
-        let distanceFormatter = LengthFormatter()
-        let formattedDistance = distanceFormatter.string(fromMeters: match.distance)
-        
-        let travelTimeFormatter = DateComponentsFormatter()
-        travelTimeFormatter.unitsStyle = .short
-        let formattedTravelTime = travelTimeFormatter.string(from: match.expectedTravelTime)
-        
-        print("Distance: \(formattedDistance); ETA: \(formattedTravelTime!)")
-        
-        for step in leg.steps {
-          print("\(step.instructions)")
-          let formattedDistance = distanceFormatter.string(fromMeters: step.distance)
-          print("— \(formattedDistance) —")
-        }
-        
-        if match.coordinates!.count > 0 {
-          // Convert the route’s coordinates into a polyline.
-          var routeCoordinates = match.coordinates!
-          let routeLine = MGLPolyline(coordinates: &routeCoordinates, count: UInt(match.coordinates!.count))
-          
-          // Add the polyline to the map and fit the viewport to the polyline.
-          self.mapView.addAnnotation(routeLine)
-          self.mapView.setVisibleCoordinates(&routeCoordinates, count: UInt(match.coordinates!.count), edgePadding: .zero, animated: true)
-        }
-        
+      guard let match = matches?.first else {
+        // TODO: Error banner / alert
+        print("Error matching path")
+        return
       }
-      
-      
-
+      // TODO: use for the popup controller
+      //let formattedDistance = presenter.formatedDistance(from: match.distance)
+      //let formattedTravelTime = presenter.formatedEstimatedTimeOfArrival(from: match.expectedTravelTime)
+      //"Distance: \(formattedDistance); ETA: \(formattedTravelTime)"
+      if let coordinates = match.coordinates, coordinates.count > 0 {
+        self.showLocationMarkers(from: point)
+        self.showPath(from: coordinates)
+      }
     }
-    
   }
-
+  
+  private func showLocationMarkers(from point: PrintablePath) {
+    mapView.addAnnotation(point.start)
+    mapView.addAnnotation(point.end)
+  }
+  
+  private func showPath(from coordinates: [CLLocationCoordinate2D]) {
+    // Convert the route’s coordinates into a polyline.
+    var routeCoordinates = coordinates
+    let routeLine = MGLPolyline(coordinates: &routeCoordinates,
+                                count: UInt(coordinates.count))
+    
+    // Add the polyline to the map and fit the viewport to the polyline.
+    self.mapView.addAnnotation(routeLine)
+    self.mapView.setVisibleCoordinates(&routeCoordinates,
+                                       count: UInt(coordinates.count),
+                                       edgePadding: .zero,
+                                       animated: true)
+  }
 }
 
 // MARK: - Location Manager Delegate

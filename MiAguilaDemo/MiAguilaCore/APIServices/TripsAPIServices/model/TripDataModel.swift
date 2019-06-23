@@ -20,12 +20,12 @@ enum LocationDataType: String, Codable {
 
 struct LocationData: Codable {
   var type: LocationDataType
-  var coordinates: (latitude: Float, longitude: Float) {
+  var coordinates: (latitude: Double, longitude: Double) {
     return (latitude: coordinatesArray.last ?? 0,
             longitude: coordinatesArray.first ?? 0)
   }
   
-  private var coordinatesArray: [Float]
+  private var coordinatesArray: [Double]
   
   enum LocationDataKeys: String, CodingKey {
     case type = "type"
@@ -35,7 +35,7 @@ struct LocationData: Codable {
   init(from decoder: Decoder) throws {
     let values = try decoder.container(keyedBy: LocationDataKeys.self)
     type = try values.decode(LocationDataType.self, forKey: .type)
-    coordinatesArray = try values.decode([Float].self, forKey: .coordinates)
+    coordinatesArray = try values.decode([Double].self, forKey: .coordinates)
   }
   
   func encode(to encoder: Encoder) throws {
