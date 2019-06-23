@@ -19,7 +19,7 @@ struct PrintablePath {
     end = MGLPointAnnotation()
 
     start.coordinate = coordinates(from: trip.start)
-    start.title = trip.start.pickupAddress
+    start.title = "Mi aguila"
     end.coordinate = coordinates(from: trip.end)
     end.title = trip.end.pickupAddress
   }
@@ -31,13 +31,21 @@ struct PrintablePath {
   }
 }
 
+struct GPSDistance {
+  var userLocation: CLLocation
+  var comparedLocation: CLLocation
+  var distance: Double
+}
+
 class TripsPresenter {
   
   private let adapter: TripsAdapterProtocol
+  private var locationManager: CLLocationManager?
   private var trips = [Trip]()
+  private var distances = [GPSDistance]()
   
   private var currentCityTrips: [Trip] {
-    // BR: Only 5
+    // BR: Only 5, but not all are shown for engine issues
     var availableTrips = [Trip]()
     let bogotaTrips = trips.filter({$0.city.name == "Bogotá"})
     for index in 0...10 {
@@ -46,12 +54,9 @@ class TripsPresenter {
     return availableTrips
   }
   
-  var coordinates: [PrintablePath] {
-    return currentCityTrips.map({PrintablePath(with: $0)})
-  }
-  
-  init() {
+  init(with locationManager: CLLocationManager?) {
     adapter = TripsAdapter()
+    self.locationManager = locationManager
     fetchTrips()
   }
   
@@ -66,6 +71,38 @@ class TripsPresenter {
     return travelTimeFormatter.string(from: travelTime) ?? ""
   }
   
+  func closestsPoints() -> [PrintablePath] {
+    var points = [PrintablePath]()
+    
+    guard let manager = locationManager,
+     let userLocation = manager.location else {
+      return points
+    }
+    
+    for trip in currentCityTrips {
+      let latitude = CLLocationDegrees(floatLiteral: trip.start.pickupLocation.coordinates.latitude)
+      let longitude = CLLocationDegrees(floatLiteral: trip.start.pickupLocation.coordinates.longitude)
+      let tripStartLocation = CLLocation(latitude: latitude, longitude: longitude)
+      
+      let distance = userLocation.distance(from: tripStartLocation)
+      distances.append(GPSDistance(userLocation: userLocation,
+                                   comparedLocation: tripStartLocation,
+                                   distance: distance))
+    }
+    
+    let sortedDistances = distances.sorted(by: { $0.distance < $1.distance })
+    
+    //BR: Only 2
+    for index in 0..<2 {
+      let currentGPSDistance = sortedDistances[index]
+      if let currentTrip = currentCityTrips.first(where: {$0.start.pickupLocation.coordinates.latitude == currentGPSDistance.comparedLocation.coordinate.latitude && $0.start.pickupLocation.coordinates.longitude == currentGPSDistance.comparedLocation.coordinate.longitude}) {
+        points.append(PrintablePath(with: currentTrip))
+      }
+
+    }
+    
+    return points
+  }
   
   private func fetchTrips() {
     adapter.getTrips(completion: { (trips) in
