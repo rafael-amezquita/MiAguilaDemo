@@ -10,33 +10,6 @@ import Foundation
 import Mapbox
 import MapboxDirections
 
-struct PrintablePath {
-  var start: MGLPointAnnotation
-  var end: MGLPointAnnotation
-  
-  init(with trip: Trip) {
-    start = MGLPointAnnotation()
-    end = MGLPointAnnotation()
-
-    start.coordinate = coordinates(from: trip.start)
-    start.title = "Mi aguila"
-    end.coordinate = coordinates(from: trip.end)
-    end.title = trip.end.pickupAddress
-  }
-  
-  func coordinates(from point: LocationPoint) -> CLLocationCoordinate2D {
-    let latitude = point.pickupLocation.coordinates.latitude
-    let longitude = point.pickupLocation.coordinates.longitude
-    return CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
-  }
-}
-
-struct GPSDistance {
-  var userLocation: CLLocation
-  var comparedLocation: CLLocation
-  var distance: Double
-}
-
 class TripsPresenter {
   
   private let adapter: TripsAdapterProtocol

@@ -16,8 +16,10 @@ class MapViewController: UIViewController {
   
   private var mapPresenter: MapViewPresenter?
   private var tripsPresenter: TripsPresenter?
-  
   private var locationManager: CLLocationManager?
+  private var descriptionCardPresenter: DescriptionCardPresenter?
+  
+  private var presentedPathDictionary = [String: Any]()
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -36,8 +38,10 @@ class MapViewController: UIViewController {
   private func setUpPresenters() {
     mapPresenter = MapViewPresenter(with: locationManager, mapView: mapView)
     tripsPresenter = TripsPresenter(with: locationManager)
+    descriptionCardPresenter = DescriptionCardPresenter()
+    
     mapPresenter?.checkLocationServicesAvailability()
-    mapPresenter?.setUserpin()
+    mapPresenter?.setUserpin(in: locationManager?.location)
   }
   
   private func presentOnGoingTrips() {
@@ -53,29 +57,32 @@ class MapViewController: UIViewController {
   
   private func preparePath(with options: MatchOptions, point: PrintablePath) {
     Directions.shared.calculate(options) { (matches, error) in
-      guard error == nil, let match = matches?.first else {
+      guard error == nil,
+        let match = matches?.first,
+        let presenter = self.tripsPresenter else {
         // TODO: Error banner / alert
         print("Error matching coordinates: \(error.debugDescription)")
         return
       }
       
-      let formatedDistanceString = self.formatPathDistances(from: match)
       if let coordinates = match.coordinates, coordinates.count > 0 {
+        // Convert the route’s coordinates into a polyline.
+        var routeCoordinates = coordinates
+        let routeLine = MGLPolyline(coordinates: &routeCoordinates,
+                                    count: UInt(coordinates.count))
+        
+        let description = PathDescription(distance: presenter.formatedDistance(from: match.distance),
+                                          formatedETA: presenter.formatedEstimatedTimeOfArrival(from: match.expectedTravelTime),
+                                          startTime: point.startTime,
+                                          endTime: "",
+                                          originAddress: point.start.title ?? "",
+                                          destinationAddress: point.end.title ?? "")
+        self.presentedPathDictionary["\(routeLine.hashValue)"] = description
+        
         self.showLocationMarkers(from: point)
-        self.showPath(from: coordinates, title: formatedDistanceString)
+        self.showPath(from: routeLine, coordinates: routeCoordinates)
       }
     }
-  }
-  
-  // TODO: use for the popup controller
-  private func formatPathDistances(from match: Match) -> String {
-    guard let presenter = tripsPresenter else {
-      return ""
-    }
-    
-    let formattedDistance = presenter.formatedDistance(from: match.distance)
-    let formattedTravelTime = presenter.formatedEstimatedTimeOfArrival(from: match.expectedTravelTime)
-    return "Distance: \(formattedDistance); ETA: \(formattedTravelTime)"
   }
   
   private func showLocationMarkers(from point: PrintablePath) {
@@ -83,17 +90,12 @@ class MapViewController: UIViewController {
     mapView.addAnnotation(point.end)
   }
   
-  private func showPath(from coordinates: [CLLocationCoordinate2D], title: String) {
-    // Convert the route’s coordinates into a polyline.
-    var routeCoordinates = coordinates
-    let routeLine = MGLPolyline(coordinates: &routeCoordinates,
-                                count: UInt(coordinates.count))
-    routeLine.title = title
-    
+  private func showPath(from poliline: MGLPolyline, coordinates: [CLLocationCoordinate2D]) {
+    var polilineCoordinates = coordinates
     // Add the polyline to the map and fit the viewport to the polyline.
-    self.mapView.addAnnotation(routeLine)
-    self.mapView.setVisibleCoordinates(&routeCoordinates,
-                                       count: UInt(coordinates.count),
+    self.mapView.addAnnotation(poliline)
+    self.mapView.setVisibleCoordinates(&polilineCoordinates,
+                                       count: UInt(polilineCoordinates.count),
                                        edgePadding: .zero,
                                        animated: true)
   }
@@ -102,7 +104,18 @@ class MapViewController: UIViewController {
 
 // MARK: - Location Manager Delegate
 extension MapViewController: CLLocationManagerDelegate {
-  func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+  func locationManager(_ manager: CLLocationManager,
+                       didUpdateLocations locations: [CLLocation]) {
+    
+    guard let location = locations.first else { return }
+    
+    mapPresenter?.setUserpin(in: location)
+    //mapPresenter?.moveTo(location: locations.first!.coordinate, zoomLevel: 15)
+    print("Found user's location: \(location)")
+  }
+  
+  func locationManager(_ manager: CLLocationManager,
+                       didChangeAuthorization status: CLAuthorizationStatus) {
     mapPresenter?.updateLocationAuthorization()
   }
 }
@@ -117,10 +130,23 @@ extension MapViewController: MGLMapViewDelegate {
   }
   
   func mapView(_ mapView: MGLMapView, didSelect annotation: MGLAnnotation) {
-    if annotation .isKind(of: MGLPolyline.self) {
-      mapPresenter?.moveTo(location: annotation.coordinate,
-                           zoomLevel: 14)
+    
+    mapPresenter?.moveTo(location: annotation.coordinate, zoomLevel: 14)
+    
+    guard let poliline = annotation as? MGLPolyline else {
+      return
     }
     
+    if let objectDescription = self.presentedPathDictionary["\(poliline.hashValue)"] as? PathDescription {
+      descriptionCardPresenter?.setup(description: objectDescription)
+    }
+    
+    if let storyboard = self.storyboard,
+      let popupController = storyboard.instantiateViewController(withIdentifier: "DescriptionCardViewController") as? DescriptionCardViewController {
+      
+      popupController.descriptionPresenter = descriptionCardPresenter
+      present(popupController, animated: true, completion: nil)
+    }
+
   }
 }
