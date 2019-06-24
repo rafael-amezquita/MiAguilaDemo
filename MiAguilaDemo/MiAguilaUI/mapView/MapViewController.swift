@@ -13,6 +13,7 @@ import MapboxDirections
 class MapViewController: UIViewController {
 
   @IBOutlet weak var mapView: MGLMapView!
+  @IBOutlet weak var speedLabel: UILabel!
   
   private var mapPresenter: MapViewPresenter?
   private var tripsPresenter: TripsPresenter?
@@ -110,8 +111,7 @@ extension MapViewController: CLLocationManagerDelegate {
     guard let location = locations.first else { return }
     
     mapPresenter?.setUserpin(in: location)
-    //mapPresenter?.moveTo(location: locations.first!.coordinate, zoomLevel: 15)
-    print("Found user's location: \(location)")
+    speedLabel.text = "valocidad: \(location.speed)"
   }
   
   func locationManager(_ manager: CLLocationManager,

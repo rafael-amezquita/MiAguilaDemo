@@ -20,7 +20,31 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XAX-Xk-2u5" customClass="MGLMapView">
                                 <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AiI-wO-p3c">
+                                        <rect key="frame" x="8" y="20" width="398" height="38"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="speed: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dQD-me-95W">
+                                                <rect key="frame" x="8" y="8.5" width="56.5" height="21"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.66666666666666663" alpha="0.5" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstItem="dQD-me-95W" firstAttribute="centerY" secondItem="AiI-wO-p3c" secondAttribute="centerY" id="jc7-bQ-Z6u"/>
+                                            <constraint firstAttribute="height" constant="38" id="paR-o3-wyK"/>
+                                            <constraint firstItem="dQD-me-95W" firstAttribute="leading" secondItem="AiI-wO-p3c" secondAttribute="leading" constant="8" id="xOo-Ie-aoZ"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="AiI-wO-p3c" firstAttribute="top" secondItem="XAX-Xk-2u5" secondAttribute="top" constant="20" id="4E7-Es-Nf7"/>
+                                    <constraint firstAttribute="trailing" secondItem="AiI-wO-p3c" secondAttribute="trailing" constant="8" id="fcQ-PY-hHr"/>
+                                    <constraint firstItem="AiI-wO-p3c" firstAttribute="leading" secondItem="XAX-Xk-2u5" secondAttribute="leading" constant="8" id="hmx-7L-Zia"/>
+                                </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="string" keyPath="styleURL__" value="mapbox://styles/mapbox/streets-v11"/>
                                 </userDefinedRuntimeAttributes>
@@ -40,10 +64,12 @@
                     </view>
                     <connections>
                         <outlet property="mapView" destination="XAX-Xk-2u5" id="cSG-jU-ikZ"/>
+                        <outlet property="speedLabel" destination="dQD-me-95W" id="DKJ-A4-JJL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="47.826086956521742" y="20.758928571428569"/>
         </scene>
         <!--Description Card View Controller-->
         <scene sceneID="wdE-Cv-4E2">
