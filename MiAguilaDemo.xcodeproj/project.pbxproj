@@ -8,14 +8,18 @@
 
 /* Begin PBXBuildFile section */
 		209E250F086F187E97E333D5 /* Pods_MiAguilaDemoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 120A2679CE181B18625FA815 /* Pods_MiAguilaDemoTests.framework */; };
-		E10D1A9B22BEBDB8000B8660 /* MapViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10D1A9A22BEBDB8000B8660 /* MapViewPresenter.swift */; };
-		E10D1A9D22BEC47A000B8660 /* TripsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10D1A9C22BEC47A000B8660 /* TripsPresenter.swift */; };
+		E11A08EC22C032F10029406C /* DescriptionCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E11A08EB22C032F10029406C /* DescriptionCardViewController.swift */; };
+		E11A08F222C033ED0029406C /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E11A08EE22C033ED0029406C /* MapViewController.swift */; };
+		E11A08F322C033ED0029406C /* TripsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E11A08F022C033ED0029406C /* TripsPresenter.swift */; };
+		E11A08F422C033ED0029406C /* MapViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E11A08F122C033ED0029406C /* MapViewPresenter.swift */; };
+		E11A08F622C04F8D0029406C /* DescriptionCardPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E11A08F522C04F8D0029406C /* DescriptionCardPresenter.swift */; };
+		E11A08F822C056790029406C /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E11A08F722C056790029406C /* MapViewModel.swift */; };
+		E11A08FA22C056B60029406C /* DescriptionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E11A08F922C056B60029406C /* DescriptionViewModel.swift */; };
 		E177351822BB9428001998BF /* TripsAPIServicesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E177351722BB9428001998BF /* TripsAPIServicesManager.swift */; };
 		E177351B22BB9637001998BF /* trips.json in Resources */ = {isa = PBXBuildFile; fileRef = E177351A22BB9637001998BF /* trips.json */; };
 		E177351E22BB97CE001998BF /* TripsAPIServicesTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E177351D22BB97CE001998BF /* TripsAPIServicesTest.swift */; };
 		E177352322BBA110001998BF /* TripsAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E177352222BBA110001998BF /* TripsAdapter.swift */; };
 		E1DCB15C22BA69E1004AA18C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1DCB15B22BA69E1004AA18C /* AppDelegate.swift */; };
-		E1DCB15E22BA69E1004AA18C /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1DCB15D22BA69E1004AA18C /* MapViewController.swift */; };
 		E1DCB16122BA69E1004AA18C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E1DCB15F22BA69E1004AA18C /* Main.storyboard */; };
 		E1DCB16322BA69E3004AA18C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E1DCB16222BA69E3004AA18C /* Assets.xcassets */; };
 		E1DCB16622BA69E3004AA18C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E1DCB16422BA69E3004AA18C /* LaunchScreen.storyboard */; };
@@ -40,15 +44,19 @@
 		8A1B3C45EFFE62EB08FF9C83 /* Pods-MiAguilaDemoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MiAguilaDemoTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MiAguilaDemoTests/Pods-MiAguilaDemoTests.debug.xcconfig"; sourceTree = "<group>"; };
 		D02D73A432BF71D5D2EC9DBB /* Pods-MiAguilaDemoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MiAguilaDemoTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MiAguilaDemoTests/Pods-MiAguilaDemoTests.release.xcconfig"; sourceTree = "<group>"; };
 		D2795D62A586DED43A8C6BC1 /* Pods_MiAguilaDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MiAguilaDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		E10D1A9A22BEBDB8000B8660 /* MapViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewPresenter.swift; sourceTree = "<group>"; };
-		E10D1A9C22BEC47A000B8660 /* TripsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripsPresenter.swift; sourceTree = "<group>"; };
+		E11A08EB22C032F10029406C /* DescriptionCardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionCardViewController.swift; sourceTree = "<group>"; };
+		E11A08EE22C033ED0029406C /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		E11A08F022C033ED0029406C /* TripsPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripsPresenter.swift; sourceTree = "<group>"; };
+		E11A08F122C033ED0029406C /* MapViewPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewPresenter.swift; sourceTree = "<group>"; };
+		E11A08F522C04F8D0029406C /* DescriptionCardPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionCardPresenter.swift; sourceTree = "<group>"; };
+		E11A08F722C056790029406C /* MapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewModel.swift; sourceTree = "<group>"; };
+		E11A08F922C056B60029406C /* DescriptionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionViewModel.swift; sourceTree = "<group>"; };
 		E177351722BB9428001998BF /* TripsAPIServicesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripsAPIServicesManager.swift; sourceTree = "<group>"; };
 		E177351A22BB9637001998BF /* trips.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = trips.json; path = Resources/trips.json; sourceTree = SOURCE_ROOT; };
 		E177351D22BB97CE001998BF /* TripsAPIServicesTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripsAPIServicesTest.swift; sourceTree = "<group>"; };
 		E177352222BBA110001998BF /* TripsAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripsAdapter.swift; sourceTree = "<group>"; };
 		E1DCB15822BA69E1004AA18C /* MiAguilaDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MiAguilaDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1DCB15B22BA69E1004AA18C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		E1DCB15D22BA69E1004AA18C /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		E1DCB16022BA69E1004AA18C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E1DCB16222BA69E3004AA18C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E1DCB16522BA69E3004AA18C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -96,6 +104,35 @@
 				D02D73A432BF71D5D2EC9DBB /* Pods-MiAguilaDemoTests.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		E11A08ED22C033ED0029406C /* mapView */ = {
+			isa = PBXGroup;
+			children = (
+				E11A08EF22C033ED0029406C /* presenters */,
+				E11A08EE22C033ED0029406C /* MapViewController.swift */,
+				E11A08F722C056790029406C /* MapViewModel.swift */,
+			);
+			path = mapView;
+			sourceTree = "<group>";
+		};
+		E11A08EF22C033ED0029406C /* presenters */ = {
+			isa = PBXGroup;
+			children = (
+				E11A08F022C033ED0029406C /* TripsPresenter.swift */,
+				E11A08F122C033ED0029406C /* MapViewPresenter.swift */,
+			);
+			path = presenters;
+			sourceTree = "<group>";
+		};
+		E11A08FB22C056C10029406C /* descriptionView */ = {
+			isa = PBXGroup;
+			children = (
+				E11A08F922C056B60029406C /* DescriptionViewModel.swift */,
+				E11A08F522C04F8D0029406C /* DescriptionCardPresenter.swift */,
+				E11A08EB22C032F10029406C /* DescriptionCardViewController.swift */,
+			);
+			path = descriptionView;
 			sourceTree = "<group>";
 		};
 		E177351922BB9625001998BF /* Resources */ = {
@@ -177,11 +214,10 @@
 		E1DCB17E22BA6B84004AA18C /* MiAguilaUI */ = {
 			isa = PBXGroup;
 			children = (
-				E1DCB15D22BA69E1004AA18C /* MapViewController.swift */,
+				E11A08FB22C056C10029406C /* descriptionView */,
+				E11A08ED22C033ED0029406C /* mapView */,
 				E1DCB15F22BA69E1004AA18C /* Main.storyboard */,
 				E1DCB16422BA69E3004AA18C /* LaunchScreen.storyboard */,
-				E10D1A9A22BEBDB8000B8660 /* MapViewPresenter.swift */,
-				E10D1A9C22BEC47A000B8660 /* TripsPresenter.swift */,
 			);
 			path = MiAguilaUI;
 			sourceTree = "<group>";
@@ -374,12 +410,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E10D1A9B22BEBDB8000B8660 /* MapViewPresenter.swift in Sources */,
-				E1DCB15E22BA69E1004AA18C /* MapViewController.swift in Sources */,
 				E1DCB15C22BA69E1004AA18C /* AppDelegate.swift in Sources */,
+				E11A08F822C056790029406C /* MapViewModel.swift in Sources */,
+				E11A08F222C033ED0029406C /* MapViewController.swift in Sources */,
+				E11A08F422C033ED0029406C /* MapViewPresenter.swift in Sources */,
+				E11A08EC22C032F10029406C /* DescriptionCardViewController.swift in Sources */,
+				E11A08F622C04F8D0029406C /* DescriptionCardPresenter.swift in Sources */,
+				E11A08FA22C056B60029406C /* DescriptionViewModel.swift in Sources */,
 				E177352322BBA110001998BF /* TripsAdapter.swift in Sources */,
 				E177351822BB9428001998BF /* TripsAPIServicesManager.swift in Sources */,
-				E10D1A9D22BEC47A000B8660 /* TripsPresenter.swift in Sources */,
+				E11A08F322C033ED0029406C /* TripsPresenter.swift in Sources */,
 				E1DCB17C22BA6B5B004AA18C /* TripDataModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

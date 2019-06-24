@@ -55,7 +55,13 @@ struct LocationDate: Codable {
   
   var date: Date? {
     let formatter = DateFormatter()
-    return formatter.date(from: dateFormat)
+    formatter.locale = Locale(identifier: "en_US_POSIX")
+    formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+    if let date = formatter.date(from: dateFormat) {
+      return date
+    }
+    
+    return nil
   }
   
   private var dateFormat: String

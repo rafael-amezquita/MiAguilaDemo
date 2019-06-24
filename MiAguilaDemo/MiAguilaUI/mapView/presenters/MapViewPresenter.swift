@@ -39,18 +39,25 @@ class MapViewPresenter {
     centerViewTo(location: location, zoomLevel: zoomLevel)
   }
   
-  func setUserpin() {
-    guard let manager = locationManager,
-      let initialLocation = manager.location?.coordinate else {
+  func setUserpin(in location: CLLocation?) {
+    guard let currentLocation = location?.coordinate else {
       return
     }
     
     let user = MGLPointAnnotation()
-    user.coordinate = CLLocationCoordinate2D(latitude: initialLocation.latitude,
-                                              longitude: initialLocation.longitude)
+    user.coordinate = CLLocationCoordinate2D(latitude: currentLocation.latitude,
+                                              longitude: currentLocation.longitude)
     user.title = "Me"
+    if let currentAnnotations = mapView.annotations {
+      let markers = currentAnnotations.filter({$0 is MGLPointAnnotation})
+      
+      if let userMarker = markers.first(where:{$0.title == "Me"}) {
+        mapView.removeAnnotation(userMarker)
+      }
+      
+    }
+    
     mapView.addAnnotation(user)
-    //    calculatePath(from: testStartPin.coordinate, to: testEndPin.coordinate)
   }
   
   private func checkLocationServicesAuthorization() {
